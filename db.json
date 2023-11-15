@@ -1,3 +1,62 @@
 {
-    "users": []
+    "users": [
+        {
+            "username": "james",
+            "password": "Password",
+            "id": 1
+        },
+        {
+            "username": "test",
+            "password": "testP",
+            "id": 2
+        },
+        {
+            "username": "jakob",
+            "password": "IluvDogs",
+            "id": 3
+        }
+    ],
+    "dogs": [
+        {
+            "name": "sport",
+            "breed": "husky",
+            "available": "yes",
+            "id": 1
+        },
+        {
+            "name": "Fido",
+            "breed": "pitbull",
+            "available": "no",
+            "id": 2
+        },
+        {
+            "name": "spot",
+            "breed": "chihuahua",
+            "available": "yes",
+            "id": 3
+        },
+        {
+            "name": "jack",
+            "breed": "Siberian Husky",
+            "available": "yes",
+            "id": 4
+        }
+    ],
+    "bookings": [
+        {
+            "userId": 1,
+            "dogId": 2,
+            "id": 1
+        },
+        {
+            "userId": 2,
+            "dogId": 1,
+            "id": 2
+        },
+        {
+            "userId": 3,
+            "dogId": 4,
+            "id": 1
+        }
+    ]
 }
