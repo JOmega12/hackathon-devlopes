@@ -7,3 +7,10 @@ export type DogTypes = {
 }
 
 
+export type UserInformation = {
+    id?: number,
+    username: string,
+    password: string
+}
+
+
