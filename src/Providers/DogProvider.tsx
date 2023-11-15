@@ -1,40 +1,54 @@
-
+import { getAllDogs } from "../api/getAllDogs";
 import { DogTypes } from "../types";
-import {Dispatch, SetStateAction, ReactNode, useState, createContext, useContext} from 'react';
-
+import {
+  Dispatch,
+  SetStateAction,
+  ReactNode,
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+} from "react";
 
 type TDogContext = {
-    dog: DogTypes | null;
-    setDog: Dispatch<SetStateAction<DogTypes | null>>;
-}
+  dog: DogTypes | null;
+  setDog: Dispatch<SetStateAction<DogTypes | null>>;
+};
 
 type DogProviderProps = {
-    children: ReactNode;
-}
-
+  children: ReactNode;
+};
 
 const DogContext = createContext<TDogContext | undefined>(undefined);
 
-export const DogProvider = ({children}: DogProviderProps) => {
+export const DogProvider = ({ children }: DogProviderProps) => {
+  const [dog, setDog] = useState<DogTypes | null>(null);
 
-    const [dog, setDog] = useState<DogTypes | null>(null); 
+  const refetch = () => {
+    getAllDogs().then(setDog);
+  };
 
-    return(
-        <DogContext.Provider
-            value={{
-                dog, setDog
-            }}
-        >
-            {children}
-        </DogContext.Provider>
-    )
-}
+  useEffect(() => {
+    refetch();
+  }, []);
+
+  return (
+    <DogContext.Provider
+      value={{
+        dog,
+        setDog,
+      }}
+    >
+      {children}
+    </DogContext.Provider>
+  );
+};
 
 // eslint-disable-next-line react-refresh/only-export-components
 export const useDog = () => {
-    const context = useContext(DogContext);
-    if(!context) {
-        throw new Error("Please use `DogAuth` hook in context in DogContext")
-    }
-    return context;
-}
+  const context = useContext(DogContext);
+  if (!context) {
+    throw new Error("Please use `DogAuth` hook in context in DogContext");
+  }
+  return context;
+};
