@@ -17,7 +17,7 @@ const AuthContext = createContext<TAuthContext | undefined>(undefined);
 
 export const AuthProvider = ({children}: AuthProviderProps) => {
 
-    const [user, setUser] = useState<UserInformation | null>(null);
+    const [user, setUser] = useState<UserInformation | null>(null); 
 
     return(
         <AuthContext.Provider
