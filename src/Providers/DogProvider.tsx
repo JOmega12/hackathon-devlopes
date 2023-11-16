@@ -11,7 +11,7 @@ import {
 } from "react";
 
 type TDogContext = {
-  dog: DogTypes | null;
+  dogs: DogTypes | null;
   setDog: Dispatch<SetStateAction<DogTypes | null>>;
 };
 
@@ -22,7 +22,7 @@ type DogProviderProps = {
 const DogContext = createContext<TDogContext | undefined>(undefined);
 
 export const DogProvider = ({ children }: DogProviderProps) => {
-  const [dog, setDog] = useState<DogTypes | null>(null);
+  const [dogs, setDog] = useState<DogTypes | null>(null);
 
   const refetch = () => {
     getAllDogs().then(setDog);
@@ -35,7 +35,7 @@ export const DogProvider = ({ children }: DogProviderProps) => {
   return (
     <DogContext.Provider
       value={{
-        dog,
+        dogs,
         setDog,
       }}
     >
