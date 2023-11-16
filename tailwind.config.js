@@ -1,12 +1,21 @@
 /** @type {import('tailwindcss').Config} */
 export default {
-  content: [
-    "./index.html",
-    "./src/**/*.{js,ts,jsx,tsx}",
-  ],
+  content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        montserrat: ["Montserrat"],
+      },
+      colors: {},
+    },
+    colors: {
+      "orange-bg": "#FFA000",
+      "icon-color": "#522F2F",
+      "pink-btn": "#E1505B",
+      "blue-btn": "#006E80",
+      "text-color": "#F1EACD",
+      "off-white": "#DEDDC2",
+    },
   },
   plugins: [],
-}
-
+};

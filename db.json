@@ -21,7 +21,7 @@
     {
       "username": "carl",
       "password": "test",
-      "shouldRemember": true,
+      "shouldRemember": false,
       "id": 4
     },
     {
