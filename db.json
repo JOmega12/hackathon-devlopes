@@ -1,62 +1,83 @@
 {
-    "users": [
-        {
-            "username": "james",
-            "password": "Password",
-            "id": 1
-        },
-        {
-            "username": "test",
-            "password": "testP",
-            "id": 2
-        },
-        {
-            "username": "jakob",
-            "password": "IluvDogs",
-            "id": 3
-        }
-    ],
-    "dogs": [
-        {
-            "name": "sport",
-            "breed": "husky",
-            "available": "yes",
-            "id": 1
-        },
-        {
-            "name": "Fido",
-            "breed": "pitbull",
-            "available": "no",
-            "id": 2
-        },
-        {
-            "name": "spot",
-            "breed": "chihuahua",
-            "available": "yes",
-            "id": 3
-        },
-        {
-            "name": "jack",
-            "breed": "Siberian Husky",
-            "available": "yes",
-            "id": 4
-        }
-    ],
-    "bookings": [
-        {
-            "userId": 1,
-            "dogId": 2,
-            "id": 1
-        },
-        {
-            "userId": 2,
-            "dogId": 1,
-            "id": 2
-        },
-        {
-            "userId": 3,
-            "dogId": 4,
-            "id": 1
-        }
-    ]
+  "users": [
+    {
+      "username": "james",
+      "password": "Password",
+      "shouldRemember": false,
+      "id": 1
+    },
+    {
+      "username": "test",
+      "password": "testP",
+      "shouldRemember": false,
+      "id": 2
+    },
+    {
+      "username": "jakob",
+      "password": "IluvDogs",
+      "shouldRemember": false,
+      "id": 3
+    },
+    {
+      "username": "carl",
+      "password": "test",
+      "shouldRemember": true,
+      "id": 4
+    },
+    {
+      "username": "test",
+      "password": "test",
+      "shouldRemember": true,
+      "id": 5
+    },
+    {
+      "username": "test1",
+      "password": "test1",
+      "shouldRemember": false,
+      "id": 6
+    }
+  ],
+  "dogs": [
+    {
+      "name": "sport",
+      "breed": "husky",
+      "available": "true",
+      "id": 1
+    },
+    {
+      "name": "Fido",
+      "breed": "pitbull",
+      "available": "false",
+      "id": 2
+    },
+    {
+      "name": "spot",
+      "breed": "chihuahua",
+      "available": "true",
+      "id": 3
+    },
+    {
+      "name": "jack",
+      "breed": "Siberian Husky",
+      "available": "true",
+      "id": 4
+    }
+  ],
+  "bookings": [
+    {
+      "userId": 1,
+      "dogId": 2,
+      "id": 1
+    },
+    {
+      "userId": 2,
+      "dogId": 1,
+      "id": 2
+    },
+    {
+      "userId": 3,
+      "dogId": 4,
+      "id": 1
+    }
+  ]
 }
