@@ -58,6 +58,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
       });
   };
 
+
   const userLogin = (user: Omit<UserInformation, "shouldRemember">, shouldRemember: boolean) => {
     return UserRequests.findUser(user)
       .then((user) => {
