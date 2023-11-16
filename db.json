@@ -41,25 +41,25 @@
     {
       "name": "sport",
       "breed": "husky",
-      "available": "yes",
+      "available": "true",
       "id": 1
     },
     {
       "name": "Fido",
       "breed": "pitbull",
-      "available": "no",
+      "available": "false",
       "id": 2
     },
     {
       "name": "spot",
       "breed": "chihuahua",
-      "available": "yes",
+      "available": "true",
       "id": 3
     },
     {
       "name": "jack",
       "breed": "Siberian Husky",
-      "available": "yes",
+      "available": "true",
       "id": 4
     }
   ],
