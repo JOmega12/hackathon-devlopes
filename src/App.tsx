@@ -9,6 +9,8 @@ import { AuthProvider } from "./Providers/AuthProvider";
 import { Lobby } from "./Pages/Lobby";
 import { DogCard } from "./Pages/DogCard";
 import { DogProvider } from "./Providers/DogProvider";
+import { UnavailableDogs } from "./Pages/UnavailableDogs";
+import { BookingProvider } from "./Providers/BookingProvider";
 
 
 function App() {
@@ -17,16 +19,19 @@ function App() {
   return (
     <>
     <AuthProvider>
-      <DogProvider>  
+      <DogProvider>
+        <BookingProvider>
         <Navbar/>
         <div className="py-10 mx-10 ">
           <Routes>
             <Route path="/" element={<Homepage/>}></Route>
             <Route path="about-us" element={<AboutPage/>}></Route>
             <Route path="lobby" element={<Lobby/>}></Route>
+            <Route path="unavailable-dogs" element={<UnavailableDogs/>}></Route>
             <Route path="dogs" element={<DogCard />}></Route>
           </Routes>
         </div>
+        </BookingProvider>
       </DogProvider>
     </AuthProvider>
     </>

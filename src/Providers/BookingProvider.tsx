@@ -1,7 +1,7 @@
 import { Dispatch, ReactNode, SetStateAction, createContext, useContext, useEffect, useState } from "react";
 import { DogTypes } from "../types"
-import { getAllDogs } from "../api/getAllDogs";
-import { toggleBookingAPI } from "../api/BookingsAPI";
+// import { getAllDogs } from "../api/getAllDogs";
+import { getBookings, toggleBookingAPI } from "../api/BookingsAPI";
 
 
 
@@ -23,12 +23,13 @@ export const BookingProvider = ({children}: BookContextProps) => {
     const [bookDog, setBookDog]= useState<DogTypes | null>(null)
     
     const refetch = () => {
-        getAllDogs().then(setBookDog);
+        getBookings().then(setBookDog);
     }
 
     useEffect(() => {
         refetch();
     }, []);
+
 
     const toggleBooking = async({userId, dogId}: {userId:number, dogId:number}) => {
          await toggleBookingAPI({ userId, dogId});
@@ -48,7 +49,7 @@ export const BookingProvider = ({children}: BookContextProps) => {
 export const useBooking = () => {
     const context = useContext(BookingContext);
     if(!context) {
-        throw new Error('Please use the useFavorite Context');
+        throw new Error('Please use the bookDogs Context');
     }
     return context;
 }

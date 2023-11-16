@@ -1,5 +1,4 @@
 import { API_CONFIG } from "./config"
-import { getAllDogs } from "./getAllDogs"
 
 
 
@@ -8,7 +7,7 @@ export type BookingIds = {
     dogId: number
 }
 
-export const bookDogs = () => {
+export const getBookings = () => {
     return fetch(API_CONFIG.baseUrl + '/bookings')
         .then((res) => {
             if(!res.ok) {
@@ -47,7 +46,7 @@ const deleteBooking = async(id:number) => {
 
 }
 export const toggleBookingAPI = async({userId, dogId}: BookingIds) => {
-    const allBookings = await getAllDogs();
+    const allBookings = await getBookings();
     const matchingBookings = allBookings.find((booking: BookingIds) => {
         return booking.userId === userId && booking.dogId === dogId
     });
