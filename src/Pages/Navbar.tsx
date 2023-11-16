@@ -5,10 +5,10 @@ import { useAuth } from "../Providers/AuthProvider";
 import { useState } from "react";
 import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
 import { faUserMinus } from "@fortawesome/free-solid-svg-icons/faUserMinus";
-import { faPaw } from "@fortawesome/free-solid-svg-icons/faPaw";
 import { faDog } from "@fortawesome/free-solid-svg-icons/faDog";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
 import { faUsers } from "@fortawesome/free-solid-svg-icons/faUsers";
+import { faBone } from "@fortawesome/free-solid-svg-icons/faBone";
 
 export const Navbar = () => {
   const [shouldShowSignup, setShouldShowSignup] = useState(false);
@@ -48,11 +48,15 @@ export const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="user-greeting">
-          <h2 className="text-2xl text-off-white font-montserrat bg-blue-btn rounded-xl p-2 px-5">
-            {isUser ? `Hello ${user.username}!` : ""}
-          </h2>
-        </div>
+        {isUser ? (
+          <div className="user-greeting">
+            <h2 className="text-2xl text-off-white font-montserrat bg-blue-btn rounded-xl p-2 px-5">
+              {`Hello ${user?.username}!`}
+            </h2>
+          </div>
+        ) : (
+          ""
+        )}
         <div id="logout">
           {isUser && (
             <div className="flex justify-evenly items-center w-44 cursor-pointer">
@@ -67,9 +71,9 @@ export const Navbar = () => {
           )}
         </div>
         <div className="flex justify-evenly items-center w-44 cursor-pointer">
-          <FontAwesomeIcon className="text-icon-color text-2xl" icon={faPaw} />
+          <FontAwesomeIcon className="text-icon-color text-2xl" icon={faBone} />
           <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
-            Lobby
+            About
           </button>
         </div>
         <div className="flex justify-evenly items-center w-44 cursor-pointer">
