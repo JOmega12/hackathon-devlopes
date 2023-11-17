@@ -15,7 +15,7 @@ export const Signup = ({ cancel }: { cancel: Dispatch<SetStateAction<boolean>> }
   };
 
   return (
-    <div>
+    <div className="w-80">
       <form
         action=""
         onSubmit={(e) => {
@@ -35,31 +35,55 @@ export const Signup = ({ cancel }: { cancel: Dispatch<SetStateAction<boolean>> }
               .then(() => cancel(false));
           }
         }}
+        className="p-2 bg-blue-btn rounded-2xl"
       >
-        <h1>Create a New Account</h1>
-        <label htmlFor="username">Username:</label>
-        <input
-          style={{ border: "1px solid black" }}
-          type="text"
-          value={usernameInput}
-          onChange={(e) => setUsernameInput(e.target.value.trim())}
-        />
-        <label htmlFor="password">Password:</label>
-        <input
-          style={{ border: "1px solid black" }}
-          type="text"
-          value={passwordInput}
-          onChange={(e) => setPasswordInput(e.target.value.trim())}
-        />
-        <input
-          type="checkbox"
-          checked={shouldRemember}
-          onChange={() => setShouldRemember(!shouldRemember)}
-        />
-        <label htmlFor="remember">Remember Me?</label>
-        <button type="submit">Submit</button>
+        <h1 className="font-montserrat text-text-color font-bold py-1">Create a New Account</h1>
+        <div className="py-1 flex justify-between">
+          <label htmlFor="username" className="font-montserrat text-off-white">
+            Username:
+          </label>
+          <input
+            style={{ border: "1px solid black" }}
+            type="text"
+            value={usernameInput}
+            onChange={(e) => setUsernameInput(e.target.value.trim())}
+            className="rounded-2xl px-3 bg-off-white text-icon-color"
+          />
+        </div>
+        <div className="py-1 flex justify-between">
+          <label htmlFor="password" className="font-montserrat text-off-white">
+            Password:
+          </label>
+          <input
+            style={{ border: "1px solid black" }}
+            type="text"
+            value={passwordInput}
+            onChange={(e) => setPasswordInput(e.target.value.trim())}
+            className="rounded-2xl px-3 bg-off-white"
+          />
+        </div>
+        <div className="flex justify-center py-1">
+          <input
+            type="checkbox"
+            checked={shouldRemember}
+            onChange={() => setShouldRemember(!shouldRemember)}
+          />
+          <label htmlFor="remember" className="font-montserrat text-off-white text-sm px-1">
+            Remember Me?
+          </label>
+        </div>
+        <div className="flex justify-evenly">
+          <button onClick={() => cancel(false)} className="text-off-white font-montserrat">
+            Cancel
+          </button>
+          <button
+            type="submit"
+            className="text-xlg rounded-xl bg-pink-btn p-1 px-3 text-off-white font-montserrat"
+          >
+            Submit
+          </button>
+        </div>
       </form>
-      <button onClick={() => cancel(false)}>Cancel</button>
     </div>
   );
 };
