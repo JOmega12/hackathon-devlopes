@@ -12,18 +12,22 @@ export const Lobby = () => {
     // const {dogId} = useParams();
     // console.log(dogId, 'dogId')
 
-    const [allActiveDogs, setAllActiveDogs] = useState<DogTypes | undefined>(undefined)
+    const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(undefined)
 
 
+    
     useEffect(() => {
       if(Array.isArray(dogs)) {
-        const activeDog = dogs.find((dog) => {
+        const activeDog = dogs.filter((dog) => {
           return dog.available;
         })
         setAllActiveDogs(activeDog)
+        console.log(activeDog);
       }
     }, [dogs])
    
+
+
     // console.log(allActiveDogs, 'allActiveDogs');
 
     // const onFavoriteClick = async() => {
@@ -35,7 +39,7 @@ export const Lobby = () => {
 
     //   }
     // }
-
+    console.log(user, 'user')
 
     return (
       <>
@@ -46,8 +50,8 @@ export const Lobby = () => {
                   <div
                   className="flex flex-row flex-wrap justify-center items-center gap-5">  
 
-                  {dogs && Array.isArray(dogs) ? (
-                    dogs.map((dog, index) => (
+                  {allActiveDogs && Array.isArray(allActiveDogs) && user && isRegister ? (
+                    allActiveDogs.map((dog, index) => (
                       <div key={index}>
                                       <div className="w-1/2 h-full">
                                         <img src={dog.image} alt="dog image" 
