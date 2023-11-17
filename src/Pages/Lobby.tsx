@@ -3,6 +3,7 @@ import { useAuth } from "../Providers/AuthProvider";
 import { useBooking } from "../Providers/BookingProvider";
 import { useDog } from "../Providers/DogProvider";
 import { DogTypes } from "../types";
+import { toggleBookingAPI } from "../api/BookingsAPI";
 
 export const Lobby = () => {
     
@@ -11,7 +12,7 @@ export const Lobby = () => {
     const {bookDog, toggleBooking} = useBooking();
     // const {dogId} = useParams();
     // console.log(dogId, 'dogId')
-
+// console.log(dogs,"Calling all dogs")
     const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(undefined)
 
     useEffect(() => {
@@ -25,16 +26,14 @@ export const Lobby = () => {
     }, [dogs])
     // console.log(allActiveDogs, 'allActiveDogs');
 
-    // const onFavoriteClick = async() => {
-    //   if(allActiveDogs) {
-    //     toggleBooking({
-    //       dogId: allActiveDogs.id ?? 0,
-    //       userId: user?.id ?? 0,
-    //     });
-
-    //   }
-    // }
-    console.log(user, 'user')
+const onFavoriteClick = () => {
+if (allActiveDogs) {
+  toggleBookingAPI({
+dogId:allActiveDogs.id,
+userId: user?.id
+  })
+}
+}
 
     return (
       <>
@@ -60,7 +59,7 @@ export const Lobby = () => {
                                           <p>{dog.available}</p>
                                           <p>Avialble for 8-2pm</p>
                                       </div>
-                                      <button>Book now!</button>
+                                      <button onClick={()=> onFavoriteClick()}>Book now!</button>
                                   </div>
                     ))
                   ) : (

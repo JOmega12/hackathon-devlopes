@@ -3,12 +3,12 @@ import { Login } from "../Forms/Login";
 import { Signup } from "../Forms/Signup";
 import { useAuth } from "../Providers/AuthProvider";
 import { useState } from "react";
-import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
-import { faUserMinus } from "@fortawesome/free-solid-svg-icons/faUserMinus";
-import { faDog } from "@fortawesome/free-solid-svg-icons/faDog";
-import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
-import { faUsers } from "@fortawesome/free-solid-svg-icons/faUsers";
-import { faBone } from "@fortawesome/free-solid-svg-icons/faBone";
+// import { faUserPlus } from "@fortawesome/free-solid-svg-icons";
+// import { faUserMinus } from "@fortawesome/free-solid-svg-icons/faUserMinus";
+// import { faDog } from "@fortawesome/free-solid-svg-icons/faDog";
+// import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
+// import { faUsers } from "@fortawesome/free-solid-svg-icons/faUsers";
+// import { faBone } from "@fortawesome/free-solid-svg-icons/faBone";
 
 export const Navbar = () => {
   const [shouldShowSignup, setShouldShowSignup] = useState(false);
@@ -28,7 +28,7 @@ export const Navbar = () => {
                 className="flex justify-evenly items-center w-44 cursor-pointer"
                 onClick={() => setShouldShowSignup(!shouldShowSignup)}
               >
-                <FontAwesomeIcon className="text-icon-color text-2xl" icon={faUserPlus} />
+                {/* <FontAwesomeIcon className="text-icon-color text-2xl" icon={faUserPlus} /> */}
                 <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
                   Sign Up
                 </button>
@@ -44,7 +44,7 @@ export const Navbar = () => {
                 className="flex justify-evenly items-center w-44 cursor-pointer"
                 onClick={() => setShouldShowLogin(!shouldShowLogin)}
               >
-                <FontAwesomeIcon className="text-icon-color text-2xl" icon={faUsers} />
+                {/* <FontAwesomeIcon className="text-icon-color text-2xl" icon={faUsers} /> */}
                 <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
                   Login
                 </button>
@@ -64,7 +64,7 @@ export const Navbar = () => {
         <div id="logout">
           {isUser && (
             <div className="flex justify-evenly items-center w-44 cursor-pointer">
-              <FontAwesomeIcon className="text-icon-color text-2xl" icon={faUserMinus} />
+              {/* <FontAwesomeIcon className="text-icon-color text-2xl" icon={faUserMinus} /> */}
               <button
                 className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat"
                 onClick={() => userLogout()}
@@ -75,19 +75,19 @@ export const Navbar = () => {
           )}
         </div>
         <div className="flex justify-evenly items-center w-44 cursor-pointer">
-          <FontAwesomeIcon className="text-icon-color text-2xl" icon={faBone} />
+          {/* <FontAwesomeIcon className="text-icon-color text-2xl" icon={faBone} /> */}
           <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
             About
           </button>
         </div>
         <div className="flex justify-evenly items-center w-44 cursor-pointer">
-          <FontAwesomeIcon className="text-icon-color text-2xl" icon={faDog} />
+          {/* <FontAwesomeIcon className="text-icon-color text-2xl" icon={faDog} /> */}
           <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
             Dogs
           </button>
         </div>
         <div className="flex justify-evenly items-center w-44 cursor-pointer">
-          <FontAwesomeIcon className="text-icon-color text-2xl" icon={faCalendarCheck} />
+          {/* <FontAwesomeIcon className="text-icon-color text-2xl" icon={faCalendarCheck} /> */}
           <button className="text-xl rounded-xl bg-blue-btn p-2 px-5 text-off-white font-montserrat">
             Reserve
           </button>
