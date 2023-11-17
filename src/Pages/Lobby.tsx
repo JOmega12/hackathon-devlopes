@@ -14,6 +14,7 @@ export const Lobby = () => {
 
     const [allActiveDogs, setAllActiveDogs] = useState<DogTypes | undefined>(undefined)
 
+
     useEffect(() => {
       if(Array.isArray(dogs)) {
         const activeDog = dogs.find((dog) => {
@@ -24,6 +25,17 @@ export const Lobby = () => {
     }, [dogs])
    
     // console.log(allActiveDogs, 'allActiveDogs');
+
+    // const onFavoriteClick = async() => {
+    //   if(allActiveDogs) {
+    //     toggleBooking({
+    //       dogId: allActiveDogs.id ?? 0,
+    //       userId: user?.id ?? 0,
+    //     });
+
+    //   }
+    // }
+
 
     return (
       <>
