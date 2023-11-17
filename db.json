@@ -21,7 +21,7 @@
     {
       "username": "carl",
       "password": "test",
-      "shouldRemember": true,
+      "shouldRemember": false,
       "id": 4
     },
     {
@@ -39,29 +39,112 @@
   ],
   "dogs": [
     {
-      "name": "sport",
-      "breed": "husky",
-      "available": "true",
+      "name": "Sport",
+      "breed": "German Shepard",
+      "available": true,
+      "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/german-shepherd-dog-breed-info.jpeg",
       "id": 1
     },
     {
       "name": "Fido",
-      "breed": "pitbull",
-      "available": "false",
+      "breed": "Siberian Husky",
+      "available": false,
+      "image": "https://images.wagwalkingweb.com/media/daily_wag/blog_articles/hero/1685787498.877709/fun-facts-about-siberian-huskies-1.png",
       "id": 2
     },
     {
-      "name": "spot",
-      "breed": "chihuahua",
-      "available": "true",
+      "name": "Spot",
+      "breed": "Chihuahua",
+      "available": true,
+      "image": "https://images.saymedia-content.com/.image/t_share/MjAxMjM1NTc0NjYzNjg1NjU0/chihuahua-guide.jpg",
       "id": 3
     },
     {
-      "name": "jack",
-      "breed": "Siberian Husky",
-      "available": "true",
+      "name": "Jack",
+      "breed": "Pitbull",
+      "available": true,
+      "image": "https://kenneltocouch.org/wp-content/uploads/2019/09/iStock-1143880146.jpg",
       "id": 4
+    },
+    {
+      "name": "Fifi",
+      "breed": "Golden Retriever",
+      "available": false,
+      "image": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-09/golden%20retriever.jpg?h=41f179ac&itok=LxcGCtq0",
+      "id": 5
+    },
+    {
+      "name": "Major",
+      "breed": "Poodle",
+      "available": true,
+      "image": "https://tkpoodles.com/images/Adonis.jpeg",
+      "id": 6
+    },
+    {
+      "name": "Calisto",
+      "breed": "Pomeranian",
+      "available": true,
+      "image": "https://www.nylabone.com/-/media/Project/OneWeb/Nylabone/Images/Dog101/Breeds-A-Z/pomeranian.jpg",
+      "id": 7
+
+    },
+    {
+      "name": "Mika",
+      "breed": "Bulldog",
+      "available": false,
+      "image": "https://thepawsitive.co/cdn/shop/articles/Blog_Image___15_Interesting_Facts_About_The_English_Bulldog.png?v=1584660313",
+      "id": 8
+    },
+    {
+      "name": "Nero",
+      "breed": "Dalmation",
+      "available": true,
+      "image": "https://dogtime.com/wp-content/uploads/sites/12/2023/08/GettyImages-1477482225.jpg?w=1024",
+      "id": 9
+    },
+    {
+      "name": "Eeyore",
+      "breed": "Basset Hound",
+      "available": false,
+      "image": "https://i0.wp.com/alaskadogworks.com/wp-content/uploads/2021/08/basset-hound.jpg?fit=1024%2C682&ssl=1",
+      "id": 10
+    },
+    {
+      "name": "Bella",
+      "breed": "Samoyed",
+      "available": true,
+      "image": "https://images.hola.com/us/images/027a-16592bb001cf-d059a6a604b7-1000/horizontal-480/instagram.jpg",
+      "id": 11
+    },
+    {
+      "name": "Oscar",
+      "breed": "Doberman",
+      "available": true,
+      "image": "https://www.pumpkin.care/wp-content/uploads/2021/03/Doberman-Hero.jpg",
+      "id": 12
+    },
+    {
+      "name": "Mouse",
+      "breed": "Beagle",
+      "available": false,
+      "image": "https://www.allthingsdogs.com/wp-content/uploads/2021/11/cute-beagle-puppy-678x381.jpg",
+      "id": 13
+    },
+    {
+      "name": "Stanley",
+      "breed": "Shiba Inu",
+      "available": true,
+      "image": "https://www.pumpkin.care/wp-content/uploads/2020/12/Shiba-Inu-Hero-1-jpg.webp",
+      "id": 14
+    },
+    {
+      "name": "Squirt",
+      "breed": "Cockapoo",
+      "available": false,
+      "image": "https://www.ukpets.com/oc-content/uploads/breeds/0/4774.jpg",
+      "id": 15
     }
+
   ],
   "bookings": [
     {
