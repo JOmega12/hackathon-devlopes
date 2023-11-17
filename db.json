@@ -9,7 +9,7 @@
     {
       "username": "test",
       "password": "testP",
-      "shouldRemember": true,
+      "shouldRemember": false,
       "id": 2
     },
     {
