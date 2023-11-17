@@ -20,6 +20,7 @@ type TAuthContext = {
     user: Omit<UserInformation, "shouldRemember">,
     shouldRemember: boolean
   ) => Promise<UserInformation>;
+  isRegister: boolean;
 };
 
 type AuthProviderProps = {
@@ -30,6 +31,8 @@ const AuthContext = createContext<TAuthContext | undefined>(undefined);
 
 export const AuthProvider = ({ children }: AuthProviderProps) => {
   const [user, setUser] = useState<UserInformation | null>(null);
+  const isRegister = !!user
+
 
   useEffect(() => {
     const previousUser = localStorage.getItem("PookieUser");
@@ -87,6 +90,7 @@ export const AuthProvider = ({ children }: AuthProviderProps) => {
         createNewUser,
         userLogout,
         userLogin,
+        isRegister
       }}
     >
       {children}
