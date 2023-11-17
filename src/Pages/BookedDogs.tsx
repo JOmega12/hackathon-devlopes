@@ -42,9 +42,9 @@ export const BookedDogs = () => {
 
     }, [bookDog, dogs, user?.id])
 
-    console.log(bookDogsData, 'what user has booked for dog')
+
     return(
-        <div>This is UnavaiableDogs Component</div>
+        <div>This is UnavailableDogs Component</div>
         
     )
 }
