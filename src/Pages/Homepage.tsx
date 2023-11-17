@@ -6,7 +6,7 @@ export const Homepage = () => {
           <h1 className="relative text-6xl font-semibold text-orange-600 ml-12 pt-8 font-montserrat text-name-color tracking-wide">
             Pookie's Paws Dog Cafe
           </h1>
-          <div className="flex flex-row items-center w-3/5 mx-auto my-10 h-1/4 justify-evenly">
+          <div className="flex flex-row items-center w-3/4 mx-auto my-10 h-1/4 justify-evenly">
             <div className="mr-4 h-60">
               <img
                 src="src\assets\Maitre De.png"
@@ -27,8 +27,8 @@ export const Homepage = () => {
             </div>
           </div>
         </section>
-        <section className="flex justify-evenly items-center mx-auto my-10 w-3/5">
-          <div className="my-10 h-1/4 w-3/5">
+        <section className="flex justify-evenly items-center mx-auto my-10 w-3/4">
+          <div className="my-10 h-1/4 w-3/5 pr-4">
             <h2 className="text-name-color font-semibold text-3xl py-4 text-left">
               <a href="#">Step into the Paws Lobby</a>
             </h2>
@@ -53,7 +53,7 @@ export const Homepage = () => {
             </a>
           </div>
         </section>
-        <section className="flex justify-evenly items-center mx-auto my-10 w-3/5">
+        <section className="flex justify-evenly items-center mx-auto my-10 w-3/4">
           <div className="h-60">
             <a href="#">
               <img
@@ -63,7 +63,7 @@ export const Homepage = () => {
               />
             </a>
           </div>
-          <div className="my-10 h-1/4 w-3/5">
+          <div className="my-10 h-1/4 w-3/5 pl-4">
             <h2 className="text-name-color font-semibold text-3xl py-4 text-left">
               <a href="#">Visit the Dogs Gallery</a>
             </h2>
