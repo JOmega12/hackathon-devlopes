@@ -14,8 +14,6 @@ export const Lobby = () => {
 
     const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(undefined)
 
-
-    
     useEffect(() => {
       if(Array.isArray(dogs)) {
         const activeDog = dogs.filter((dog) => {
@@ -25,9 +23,6 @@ export const Lobby = () => {
         console.log(activeDog);
       }
     }, [dogs])
-   
-
-
     // console.log(allActiveDogs, 'allActiveDogs');
 
     // const onFavoriteClick = async() => {
