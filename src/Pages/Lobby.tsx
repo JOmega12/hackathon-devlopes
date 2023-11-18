@@ -59,10 +59,7 @@ export const Lobby = () => {
               or Two, or…
             </h3>
           </div>
-          <div
-            className="flex justify-center mb-10
-          "
-          >
+          <div className="flex justify-center mb-10">
             <button
               onClick={() => navigate("/booked-dogs")}
               className=" bg-pink-btn p-5 text-2xl text-off-white"
@@ -70,7 +67,6 @@ export const Lobby = () => {
               Booked Dogs
             </button>
           </div>
-{/* min-[360px]:flex-col */}
           <div className="flex flex-col w-full">
 
             <div className="checkout flex flex-row flex-grow bg-blue-900  text-name-color justify-center items-center bg-footer-text gap-10 mb-10">
@@ -129,7 +125,11 @@ export const Lobby = () => {
             </div>
           </div>
 
-
+          <div className="mb-10 text-icon-color text-center">
+            <h2 className="m-1 text-[75px] font-bold">
+              Our Dogs
+            </h2>
+          </div>
 
           <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
             {dogs && Array.isArray(dogs) && user && isRegister ? (
@@ -142,7 +142,7 @@ export const Lobby = () => {
                       className="w-[250px] h-[250px]"
                     />
                   </div>
-                  <div className="flex flex-col text-center gap-2 bg-orange-">
+                  <div className="flex flex-col text-center gap-2 bg-dog-bg text-off-white rounded-md border-2 border-b-dog-bg">
                     <h2 className="text-4xl font-bold">{dog.name}</h2>
                     <h3 className="text-2xl font-semibold">{dog.breed}</h3>
                     <div>
@@ -152,7 +152,7 @@ export const Lobby = () => {
                     <div className="text-off-white">
                       <button
                         onClick={() => onBookingClick(dog.id)}
-                        className="bg-pink-btn rounded-md border-2 w-full p-2 flex justify-center border-off-white"
+                        className="bg-pink-btn rounded-md border-2 w-full p-2 flex justify-center border-off-white top-2"
                       >
                         Book now!
                       </button>
