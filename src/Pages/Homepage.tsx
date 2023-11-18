@@ -57,7 +57,7 @@ export const Homepage = () => {
             <div className="h-60">
               <a href="#">
                 <img
-                  src="src\assets\Head4.png"
+                  src="src\assets\4heads.png"
                   alt="Headshots"
                   className="object-cover w-full h-full rounded-lg"
                 />
@@ -79,6 +79,77 @@ export const Homepage = () => {
             </div>
           </section>
         </div>
+
+
+
+
+
+
+       
+        <div className="flex flex-row bg-teal-footer h-64 w-1140 p-0 justify-center items-center ">
+            
+               
+
+    
+    <div className="flex flex-row gap-2 w-fit h-48 mr-auto">
+        <div className="w-24 h-24 object-cover flex items-center justify-center ml-6 mt-10 mb-auto">
+            <img src="src/assets/Pookie Head.png" alt="Pookie"></img>
+        </div> 
+
+        <div className="w-fit h-48 flex item-end ml-5 justify-center font-semibold text-footer-text">
+            <p className="mt-8">
+            The PookieBears Team
+            </p>
+            <ul className="flex items-center justify-center ml-5 mt-2.5">
+            <li>Jensen Omega</li>
+            <li>Carl Boquiren</li>
+            <li>Joshua Ford</li>
+            <li>Monica Atmadja</li>
+            <li>Dzidzor Essein</li>
+            </ul>
+        </div>
+    </div>
+
+    <div className="flex flex-col gap-20 w-600 h-48 mx-auto text-footer-text text-center justify-center items-center">
+        <div className="items-center justify-center leading-5">
+            <p>1 Paws Lane, Doggiland</p>
+            <p>1-800-PAW-CAFE</p>
+        </div>
+
+        <div className="items-center justify-center mt-50 mt-25">
+            <p>Copyrights 2023 | All Rights Reserved |The PookieBears Team</p>
+            <p><h3 className="leading-0 text-base font-normal">
+                Images created by generative AI - Adobe FireFly</h3> </p>
+        </div>
+    </div>
+
+
+    <div className="flex flex-col items-end gap-20 w-200 h-200 mr-15">
+        <div className="text-footer-text items-center justify-center font-semibold mt-20">
+            <ul>
+            <li className="nav-link">
+                <a href="#signup">Sign Up</a>
+            </li>
+            <li className="nav-link">
+                <a href="#login">Login</a>
+            </li>
+            <li className="nav-link">
+                <a href="#about">About Us</a>
+            </li>
+            <li className="nav-link">
+                <a href="#dogs">Dogs</a>
+            </li>
+            <li className="nav-link">
+                <a href="#reserve">Reserve</a>
+            </li>
+            </ul>
+        </div>  
+    </div>
+
+    </div>
+
+
+
       </>
     );
   };
