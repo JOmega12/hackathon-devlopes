@@ -25,9 +25,7 @@ export const Lobby = () => {
         })
         .map((booking) => booking.dogId);
 
-      const availableDogs = dogs.filter(
-        (dog) => !userBookings.includes(dog.id)
-      );
+      const availableDogs = dogs.filter((dog) => !userBookings.includes(dog.id));
       setActiveDogs(availableDogs);
     }
   }, [bookDog, dogs, user?.id]);
@@ -50,9 +48,7 @@ export const Lobby = () => {
     <>
       <div>
         <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
-          <h1 className="text-6xl font-extrabold text-center mb-16">
-            Our Dogs
-          </h1>
+          <h1 className="text-6xl font-extrabold text-center mb-16">Our Dogs</h1>
           <div
             className="flex justify-center mb-10
           "
@@ -69,25 +65,16 @@ export const Lobby = () => {
               activeDogs.map((dog, index) => (
                 <div key={index} className="flex flex-col">
                   <div className="">
-                    <img
-                      src={dog.image}
-                      alt="dog image"
-                      className="w-[250px] h-[250px]"
-                    />
+                    <img src={dog.image} alt="dog image" className="w-[250px] h-[250px]" />
                   </div>
                   <div className="flex flex-col text-center gap-2 bg-orange-">
                     <h2 className="text-4xl font-bold">{dog.name}</h2>
                     <h3 className="text-2xl font-semibold">{dog.breed}</h3>
                     <div>
-                      <p>Is it available?</p>
+                      <p>When am I available?</p>
                       <p>{dog.timeAvailable}</p>
                     </div>
-                    <button
-                      onClick={() => onBookingClick(dog.id)}
-                      className={`border-4 ${
-                        dog.available ? "bg-orange-bg" : ""
-                      }`}
-                    >
+                    <button onClick={() => onBookingClick(dog.id)} className="bg-pink-btn border-4">
                       Book now!
                     </button>
                   </div>
@@ -95,7 +82,7 @@ export const Lobby = () => {
               ))
             ) : (
               <div className="text-5xl font-semibold">
-                No dogs available. Please Login
+                Please log in to view our available dogs!
               </div>
             )}
           </div>

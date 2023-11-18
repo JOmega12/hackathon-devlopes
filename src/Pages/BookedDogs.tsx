@@ -12,18 +12,14 @@ export const BookedDogs = () => {
   const { dogs } = useDog();
   const { user, isRegister } = useAuth();
 
-  const [bookDogsData, setBookDogsData] = useState<(DogTypes | undefined)[]>(
-    []
-  );
+  const [bookDogsData, setBookDogsData] = useState<(DogTypes | undefined)[]>([]);
 
   useEffect(() => {
     if (Array.isArray(bookDog)) {
       // when user is loggedIn, this shows what the user has booked
-      const userBookings = bookDog.filter(
-        (selfUser: { userId: number | undefined }) => {
-          return selfUser.userId === user?.id;
-        }
-      );
+      const userBookings = bookDog.filter((selfUser: { userId: number | undefined }) => {
+        return selfUser.userId === user?.id;
+      });
       // this gets the information of the specific dog
       if (Array.isArray(dogs)) {
         const matchedData = userBookings.map((bookDogId: { dogId: number }) => {
@@ -56,9 +52,7 @@ export const BookedDogs = () => {
   return (
     <div>
       <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
-        <h1 className="text-6xl font-extrabold text-center mb-16">
-          Dogs You Booked
-        </h1>
+        <h1 className="text-6xl font-extrabold text-center mb-16">Dogs You Booked</h1>
         <div className="flex justify-center mb-10">
           <button
             onClick={() => navigate("/lobby")}
@@ -74,26 +68,20 @@ export const BookedDogs = () => {
                 {dog && (
                   <>
                     <div className="">
-                      <img
-                        src={dog.image}
-                        alt="dog image"
-                        className="w-[250px] h-[250px]"
-                      />
+                      <img src={dog.image} alt="dog image" className="w-[250px] h-[250px]" />
                     </div>
                     <div className="flex flex-col text-center gap-2">
                       <h2 className="text-4xl font-bold">{dog.name}</h2>
                       <h3 className="text-2xl font-semibold">{dog.breed}</h3>
                       <div>
-                        <p>Is it available?</p>
+                        <p>When am I available?</p>
                         <p>{dog.timeAvailable}</p>
                       </div>
                       <button
                         onClick={() => onBookingClick(dog.id)}
-                        className={`border-4 ${
-                          dog.available ? "" : "bg-orange-bg"
-                        }`}
+                        className={`border-4 ${dog.available ? "" : "bg-orange-bg"}`}
                       >
-                        Book now!
+                        Release Booking
                       </button>
                     </div>
                   </>
@@ -101,9 +89,7 @@ export const BookedDogs = () => {
               </div>
             ))
           ) : (
-            <div className="text-5xl font-semibold">
-              No dogs available. Please Login
-            </div>
+            <div className="text-5xl font-semibold">No dogs available. Please Login</div>
           )}
         </div>
       </div>
