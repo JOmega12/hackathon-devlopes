@@ -51,7 +51,6 @@ export const Lobby = () => {
     // const updatedActiveDogs = ((prevActiveDogs: (DogTypes | undefined)[]) =>
     // (prevActiveDogs || []).filter((dog) => dog?.id !== dogId)
     // );
-
   
     setAllActiveDogs((prevActiveDogs: DogTypes[] | undefined) => {
       const dogsArray = prevActiveDogs || [];
@@ -100,7 +99,7 @@ export const Lobby = () => {
                       )}
                     </div>
                     <button onClick={() => onBookingClick(dog.id)}
-                    className="border-4 border-red"
+                    className="border-4 bg-"
                     >Book now!</button>
                   </div>
                 </div>
