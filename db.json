@@ -162,13 +162,18 @@
     },
     {
       "userId": 2,
-      "dogId": 6,
+      "dogId": 1,
       "id": 3
     },
     {
-      "userId": 4,
-      "dogId": 1,
+      "userId": 2,
+      "dogId": 2,
       "id": 4
+    },
+    {
+      "userId": 2,
+      "dogId": 3,
+      "id": 5
     }
   ]
 }
