@@ -17,13 +17,14 @@ export const BookedDogs = () => {
   );
 
   // this should show the data that the dog is unavailable
-  console.log(bookDogsData, "bookdogsData");
+
 
   useEffect(() => {
     if (Array.isArray(bookDog)) {
       // when user is loggedIn, this shows what the user has booked
       const userBookings = bookDog.filter(
         (selfUser: { userId: number | undefined }) => {
+            console.log(user)
           return selfUser.userId === user?.id;
         }
       );
@@ -38,7 +39,9 @@ export const BookedDogs = () => {
       }
     
     }
-  }, [bookDog, dogs, user?.id]);
+  }, [bookDog, dogs, user, user?.id]);
+
+  console.log(bookDogsData, "bookdogsData");
 
   // onClick this either creates a booking or does not book the person
   const onBookingClick = (dogId: number | undefined) => {
@@ -90,11 +93,6 @@ export const BookedDogs = () => {
                   <div>
                     <p>Is it available?</p>
                     <p>{dog?.timeAvailable}</p>
-                    {dog?.available ? (
-                      <p>Dog Is Available!</p>
-                    ) : (
-                      <p>Dog Is Not Available</p>
-                    )}
                   </div>
                   <button onClick={() => onBookingClick(dog?.id)}>
                     Book now!

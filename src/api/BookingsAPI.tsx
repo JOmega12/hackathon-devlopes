@@ -33,7 +33,6 @@ export const createBooking = ({userId, dogId}: BookingIds) =>{
     })
 }
 
-
 const deleteBooking = async(id:number) => {
     return fetch(API_CONFIG.baseUrl + '/bookings/' + id, {
         method: "DELETE",
