@@ -28,7 +28,9 @@ export const DogCard = () => {
       </div>
 
       <div className="flex gap-y-[5%]">
+
         <div className="flex flex-col w-full">
+          
           <div className="checkout flex text-orange-500 bg-blue-900">
             <span className="font-bold font-monterrat w-6/12 pt-[8%] pl-[12%]">Check out our Veteran Paws</span>
             <span><img className="pt-[20%]" src="/YellowArrow.svg" alt="Yellow Arrow" /></span>
@@ -45,7 +47,6 @@ export const DogCard = () => {
               </p>
               <a className="more-button whitespace-nowrap" href="#">Read more</a>
             </div>
-
             <img className="w-9/20" 
               src="https://img.freepik.com/premium-psd/cute-dog-with-glasses-fun-colorful-concept-ideal-print-design_529119-509.jpg?w=740"
               alt="first dog"
@@ -63,13 +64,16 @@ export const DogCard = () => {
               </p>
               <a className="more-button whitespace-nowrap" href="#">Read more</a>
             </div>
-
             <img className="w-9/20"
               src="https://img.freepik.com/premium-vector/colorful-bulldog-pop-art-style_825692-30.jpg?w=740"
               alt="second dog"
             />
           </div>
+  
         </div>
+
+
+
         <div className="grid w-4/5 grid-cols-[repeat(auto-fit, minmax(205px, 1fr)] gap-15 auto-rows-[minmax(75px, auto)]">
           <div className="text-center">
             <div>
@@ -176,6 +180,9 @@ export const DogCard = () => {
         </div>
       </div>
     </div>
+
+
+
     <footer className="bg-teal-600 text-orange-200">
       <div className="flex items-center justify-between">
         <div className="flex flex-1 justify-between items-center">

@@ -13,6 +13,7 @@ export default {
       "icon-color": "#522F2F",
       "pink-btn": "#E1505B",
       "blue-btn": "#006E80",
+      "dog-bg": "#3868b1",
       "text-color": "#F1EACD",
       "off-white": "#DEDDC2",
       "name-color": "#BB3E18",

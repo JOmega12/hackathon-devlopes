@@ -51,7 +51,7 @@ export const BookedDogs = () => {
 
   return (
     <div>
-      <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
+      <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 bg-off-white">
         <h1 className="text-6xl font-extrabold text-center mb-16">Dogs You Booked</h1>
         <div className="flex justify-center mb-10">
           <button
