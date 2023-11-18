@@ -10,6 +10,8 @@ type TBookingContext = {
     toggleBooking: ({userId, dogId}: {userId:number, dogId:number}) => void
     bookDog: DogTypes | null;
     setBookDog: Dispatch<SetStateAction<DogTypes | null>>
+    // isBooked: boolean;
+    // setIsBooked: Dispatch<SetStateAction<boolean>>
 }
 
 type BookContextProps = {
@@ -20,7 +22,7 @@ const BookingContext = createContext<TBookingContext | undefined>(undefined);
 
 
 export const BookingProvider = ({children}: BookContextProps) => {
-    const [bookDog, setBookDog]= useState<DogTypes | null>(null)
+    const [bookDog, setBookDog]= useState<DogTypes | null>(null);
     
     const refetch = () => {
         getBookings().then(setBookDog);
@@ -37,7 +39,7 @@ export const BookingProvider = ({children}: BookContextProps) => {
     }
     return(
         <BookingContext.Provider value={{
-            bookDog, setBookDog, toggleBooking
+            bookDog, setBookDog, toggleBooking, 
         }}>
             {children}
         </BookingContext.Provider>
