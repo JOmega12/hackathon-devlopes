@@ -24,7 +24,7 @@ function App() {
                 <Route path="about-us" element={<AboutPage />}></Route>
                 <Route path="lobby" element={<Lobby />}></Route>
                 <Route path="booked-dogs" element={<BookedDogs />}></Route>
-                <Route path="dogs/:dogsId" element={<DogCard />}></Route>
+                <Route path="dogs" element={<DogCard />}></Route>
               </Routes>
             </div>
           </BookingProvider>
