@@ -1,4 +1,3 @@
-
 // import './App.css'
 
 import { Route, Routes } from "react-router-dom";
@@ -12,30 +11,27 @@ import { DogProvider } from "./Providers/DogProvider";
 import { BookedDogs } from "./Pages/BookedDogs";
 import { BookingProvider } from "./Providers/BookingProvider";
 
-
 function App() {
-
-
   return (
     <>
-    <AuthProvider>
-      <DogProvider>
-        <BookingProvider>
-        <Navbar/>
-        <div className="py-10 mx-10 w-full min-h-screen ">
-          <Routes>
-            <Route path="/" element={<Homepage/>}></Route>
-            <Route path="about-us" element={<AboutPage/>}></Route>
-            <Route path="lobby" element={<Lobby/>}></Route>
-            <Route path="booked-dogs" element={<BookedDogs/>}></Route>
-            <Route path="dogs/:dogsId" element={<DogCard />}></Route>
-          </Routes>
-        </div>
-        </BookingProvider>
-      </DogProvider>
-    </AuthProvider>
+      <AuthProvider>
+        <DogProvider>
+          <BookingProvider>
+            <Navbar />
+            <div className="w-full min-h-screen ">
+              <Routes>
+                <Route path="/" element={<Homepage />}></Route>
+                <Route path="about-us" element={<AboutPage />}></Route>
+                <Route path="lobby" element={<Lobby />}></Route>
+                <Route path="booked-dogs" element={<BookedDogs />}></Route>
+                <Route path="dogs/:dogsId" element={<DogCard />}></Route>
+              </Routes>
+            </div>
+          </BookingProvider>
+        </DogProvider>
+      </AuthProvider>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
