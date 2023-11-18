@@ -4,6 +4,7 @@ export type DogTypes = {
   id?: number;
   image: string;
   timeAvailable?: string;
+  available:boolean;
 };
 
 export type UserInformation = {
