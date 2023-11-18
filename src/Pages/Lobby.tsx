@@ -51,7 +51,6 @@ export const Lobby = () => {
     // const updatedActiveDogs = ((prevActiveDogs: (DogTypes | undefined)[]) =>
     // (prevActiveDogs || []).filter((dog) => dog?.id !== dogId)
     // );
-
   
     setAllActiveDogs((prevActiveDogs: DogTypes[] | undefined) => {
       const dogsArray = prevActiveDogs || [];
@@ -66,8 +65,11 @@ export const Lobby = () => {
       <div>
         <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
           <h1 className="text-6xl font-extrabold text-center mb-16">Our Dogs</h1>
-          <div className="bg-red-600 text-red hover:bg-cyan-600 justify-center">
-            <button onClick={() => navigate('/booked-dogs')}>Lobby</button>
+          <div className="flex justify-center
+          ">
+            <button onClick={() => navigate('/booked-dogs')}
+            className=" bg-pink-btn p-5 text-2xl text-off-white"
+            >Booked Dogs</button>
           </div>
           <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
             {allActiveDogs &&
@@ -96,7 +98,9 @@ export const Lobby = () => {
                         <p>Dog Is Not Available</p>
                       )}
                     </div>
-                    <button onClick={() => onBookingClick(dog.id)}>Book now!</button>
+                    <button onClick={() => onBookingClick(dog.id)}
+                    className="border-4 bg-"
+                    >Book now!</button>
                   </div>
                 </div>
               ))
