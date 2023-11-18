@@ -12,6 +12,8 @@ export const Lobby = () => {
   // this tries to get the booking state of the dog and checks it
   console.log(bookDog, 'bookDog state');
 
+  // compare the user.id with bookDog  userId and with the
+  // dogs(filtered dog) id with bookDog dog Id
 
   const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(
     undefined
@@ -36,12 +38,24 @@ export const Lobby = () => {
       });
     }
 
-    // this code will render the dogs to not show as active in the active section
-    const updatedActiveDogs = allActiveDogs?.filter((dog) => dog.id !== dogId)
+    // this code will render a new set of active dogs that go directly to bookingDogs component
+    const updatedActiveDogs = (allActiveDogs || [])?.filter((dog) => dog.id !== dogId)
 
+    // const updatedActiveDogs = allActiveDogs?.map((dog) => {
+    //   if(dog.id === dogId) {
+    //     return {
+    //       ...dog,
+    //       available: !dog.available
+    //     };
+    //   }
+    //   return dog
+    // });
+    // .filter((dog) => dog.id !== dogId)
     setAllActiveDogs(updatedActiveDogs)
   };
 
+  // const test= allActiveDogs?.map((item) => item.id);
+  // console.log(test);
 
   return (
     <>

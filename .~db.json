@@ -204,6 +204,11 @@
       "userId": 2,
       "dogId": 9,
       "id": 16
+    },
+    {
+      "userId": 2,
+      "dogId": 11,
+      "id": 17
     }
   ]
 }
