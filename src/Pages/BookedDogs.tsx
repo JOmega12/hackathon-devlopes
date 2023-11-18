@@ -7,11 +7,9 @@ import { useNavigate } from "react-router-dom";
 
 export const BookedDogs = () => {
   const navigate = useNavigate();
-
   const { bookDog, toggleBooking } = useBooking();
   const { dogs } = useDog();
   const { user, isRegister } = useAuth();
-
   const [bookDogsData, setBookDogsData] = useState<(DogTypes | undefined)[]>([]);
 
   useEffect(() => {
@@ -46,12 +44,12 @@ export const BookedDogs = () => {
           userId: user?.id,
         });
       }
-    }
+    } 
   };
 
   return (
     <div>
-      <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
+      <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 bg-off-white">
         <h1 className="text-6xl font-extrabold text-center mb-16">Dogs You Booked</h1>
         <div className="flex justify-center mb-10">
           <button
@@ -70,19 +68,21 @@ export const BookedDogs = () => {
                     <div className="">
                       <img src={dog.image} alt="dog image" className="w-[250px] h-[250px]" />
                     </div>
-                    <div className="flex flex-col text-center gap-2">
+                    <div className="flex flex-col text-center gap-2 bg-dog-bg text-off-white rounded-md border-2 border-b-dog-bg">
                       <h2 className="text-4xl font-bold">{dog.name}</h2>
                       <h3 className="text-2xl font-semibold">{dog.breed}</h3>
                       <div>
                         <p>When am I available?</p>
                         <p>{dog.timeAvailable}</p>
                       </div>
-                      <button
-                        onClick={() => onBookingClick(dog.id)}
-                        className={`border-4 ${dog.available ? "" : "bg-orange-bg"}`}
-                      >
-                        Release Booking
-                      </button>
+                      <div className="text-off-white">
+                        <button
+                          onClick={() => onBookingClick(dog.id)}
+                          className='bg-pink-btn rounded-md border-2 w-full p-2 flex justify-center border-off-white top-2'
+                        >
+                          Release Booking
+                        </button>
+                      </div>
                     </div>
                   </>
                 )}
