@@ -172,28 +172,8 @@
     },
     {
       "userId": 2,
-      "dogId": 6,
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "dogId": 8,
-      "id": 15
-    },
-    {
-      "userId": 2,
-      "dogId": 9,
-      "id": 16
-    },
-    {
-      "userId": 2,
       "dogId": 4,
-      "id": 17
-    },
-    {
-      "userId": 2,
-      "dogId": 1,
-      "id": 18
+      "id": 2
     }
   ]
 }

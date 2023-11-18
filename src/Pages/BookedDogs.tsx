@@ -27,40 +27,44 @@ export const BookedDogs = () => {
           return selfUser.userId === user?.id;
         }
       );
+    // this gets the information of the specific dog
       if (Array.isArray(dogs)) {
-        // this gets the information of the specific dog
         const matchedData = userBookings.map((bookDogId: { dogId: number }) => {
-          return dogs.find((specificDogId) => {
-            return specificDogId.id === bookDogId.dogId;
+            return dogs.find((specificDogId) => {
+              return specificDogId.id === bookDogId.dogId;
+            });
           });
-        });
-        setBookDogsData(matchedData);
+          setBookDogsData(matchedData);
       }
+    
     }
   }, [bookDog, dogs, user?.id]);
 
   // onClick this either creates a booking or does not book the person
   const onBookingClick = (dogId: number | undefined) => {
-    if (user && user?.id && dogId !== undefined) {
-      toggleBooking({
-        dogId: dogId,
-        userId: user?.id,
-      });
+    if (user && user?.id && Array.isArray(bookDog) &&dogId !== undefined) {
+      // Check if the dog is currently booked
+      const isBooked = bookDog.some((booking) => booking.dogId === dogId && booking.userId === user?.id);
+  
+      if (isBooked) {
+        // Unbook the dog
+        toggleBooking({
+          dogId: dogId,
+          userId: user?.id,
+        });
+  
+        // Remove the unbooked dog from the state
+        setBookDogsData((prevBookDogsData) =>
+          prevBookDogsData.filter((dog) => dog?.id !== dogId)
+        );
+      }
     }
-
-    // this code will render the dogs to not show as active in the active section
-    // const updatedActiveDogs = (bookDogsData || [])?.filter((dog) => dog?.id !== dogId)
-    // setBookDogsData(updatedActiveDogs)
-    setBookDogsData((prevBookDogsData: (DogTypes | undefined)[]) => {
-      const dogsArray = prevBookDogsData || [];
-      return dogsArray.filter((dog) => dog?.id !== dogId);
-    });
   };
 
   return (
     <div>
       <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
-        <h1 className="text-6xl font-extrabold text-center mb-16">Our Dogs</h1>
+        <h1 className="text-6xl font-extrabold text-center mb-16">Unavailable Dogs</h1>
         <div className="flex justify-center">
           <button
             onClick={() => navigate("/lobby")}
@@ -68,9 +72,6 @@ export const BookedDogs = () => {
           >
             Lobby
           </button>
-        </div>
-        <div>
-          <h2 className="">Unavailable Dogs</h2>
         </div>
         <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
           {bookDogsData && Array.isArray(bookDogsData) && user && isRegister ? (
@@ -114,3 +115,6 @@ export const BookedDogs = () => {
     //     const updatedActiveDogs = allActiveDogs?.filter((dog) => dog.id !== dogId)
   );
 };
+
+
+
