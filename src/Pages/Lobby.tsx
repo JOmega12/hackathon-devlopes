@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react";
 import { useAuth } from "../Providers/AuthProvider";
 import { useBooking } from "../Providers/BookingProvider";
 import { useDog } from "../Providers/DogProvider";
-import { DogTypes } from "../types";
+// import { DogTypes } from "../types";
 import { useNavigate } from "react-router-dom";
 
 export const Lobby = () => {
@@ -19,42 +18,22 @@ export const Lobby = () => {
   // compare the user.id with bookDog  userId and with the
   // dogs(filtered dog) id with bookDog dog Id
 
-
-  // const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(
-  //   undefined
-  // );
-
-  // useEffect(() => {
-  //   if (Array.isArray(dogs)) {
-  //     const activeDog = dogs.filter((dog) => {
-  //       return dog.available;
-  //     });
-  //     setAllActiveDogs(activeDog)
-  //   }
-
-  // }, [dogs]);
-
   // onClick this either creates a booking or does not book the person
 
   const onBookingClick = (dogId: number | undefined) => {
     if (user && user?.id && Array.isArray(dogs) &&dogId !== undefined) {
       const selectedDog = dogs.find((dog) => dog.id === dogId);
   
-      if (selectedDog && selectedDog.available) {
+      if (selectedDog) {
         toggleBooking({
           dogId: dogId,
           userId: user?.id,
         });
-         
-          // Remove the booked dog from the list of available dogs
-        setDog((prevDog: DogTypes | null) => {
-            const dogsArray = prevDog || [];
-            if(Array.isArray(dogsArray) && prevDog){
-              return dogsArray.filter((dog) => dog?.id !== dogId);
-            }
-
-        });
       }
+
+      const newSetDog = dogs.filter((dog) => dog.id !== dogId)
+      setDog(newSetDog);
+
     }
   };
 
@@ -77,8 +56,8 @@ export const Lobby = () => {
             Array.isArray(dogs) &&
             user &&
             isRegister ? (
+              // if dogs.length > 2 it shows a pop up
               dogs.map((dog, index) => (
-                
                 <div key={index} className="flex flex-col">
                   <div className="">
                     <img
@@ -93,11 +72,6 @@ export const Lobby = () => {
                     <div>
                       <p>Is it available?</p>
                       <p>{dog.timeAvailable}</p>
-                      {dog.available ? (
-                        <p>Dog Is Available!</p>
-                      ) : (
-                        <p>Dog Is Not Available</p>
-                      )}
                     </div>
                     <button onClick={() => onBookingClick(dog.id)}
                     className="border-4"

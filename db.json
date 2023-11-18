@@ -172,13 +172,13 @@
     },
     {
       "userId": 2,
-      "dogId": 4,
-      "id": 2
+      "dogId": 6,
+      "id": 3
     },
     {
       "userId": 2,
-      "dogId": 6,
-      "id": 3
+      "dogId": 3,
+      "id": 5
     }
   ]
 }
