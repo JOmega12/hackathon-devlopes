@@ -3,22 +3,23 @@ import { useBooking } from "../Providers/BookingProvider";
 import { useDog } from "../Providers/DogProvider";
 import { DogTypes } from "../types";
 import { useAuth } from "../Providers/AuthProvider";
+import {
+     useNavigate } from "react-router-dom";
 
 
 
 export const BookedDogs = () => {
+    const navigate= useNavigate()
 
     const {bookDog, toggleBooking} = useBooking();
     const {dogs} = useDog();
     const {user, isRegister} = useAuth();
 
-    // const bookDogIds = bookDog?.map((item) => item.dogId) || [];
-    // console.log(bookDogIds, 'book-dog-ids');
-
 
     const [bookDogsData, setBookDogsData] = useState<(DogTypes | undefined)[]>([])
 
-
+    // this should show the data that the dog is unavailable
+    console.log(bookDogsData, 'bookdogsData')
 
     useEffect(() => {        
         if(Array.isArray(bookDog)) {
@@ -26,8 +27,6 @@ export const BookedDogs = () => {
             const userBookings = bookDog.filter((selfUser: {userId: number| undefined}) => {
                 return selfUser.userId === user?.id
             })
-            console.log(userBookings, 'userBookings')
-
             if(Array.isArray(dogs)) {
                 // this gets the information of the specific dog
                 const matchedData = userBookings.map((bookDogId: {dogId: number}) => {
@@ -35,7 +34,6 @@ export const BookedDogs = () => {
                         return specificDogId.id === bookDogId.dogId
                     })
                 });
-                console.log(matchedData, 'matchedData')
                 setBookDogsData(matchedData);
             }
         }
@@ -52,26 +50,27 @@ export const BookedDogs = () => {
     }
 
     // this code will render the dogs to not show as active in the active section
-    const updatedActiveDogs = (bookDogsData || [])?.filter((dog) => dog?.id !== dogId)
-    
-    // .map((dog) => {
-    //     if(dog?.id === dogId) {
-    //       return{
-    //         ...dog,
-    //         available: !dog?.available
-    //       };
-    //     }
-    //     return dog
-    //   })
-// .filter((dog) => dog.id !== dogId)
-    setBookDogsData(updatedActiveDogs)
+    // const updatedActiveDogs = (bookDogsData || [])?.filter((dog) => dog?.id !== dogId)
+    // setBookDogsData(updatedActiveDogs)
+    setBookDogsData((prevBookDogsData: (DogTypes | undefined)[]) => {
+        const dogsArray = prevBookDogsData || [];
+        return dogsArray.filter((dog) => dog?.id !== dogId)
+      }
+    ) 
+
   };
 
 
     return(
-              <div>
+        <div>
         <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
           <h1 className="text-6xl font-extrabold text-center mb-16">Our Dogs</h1>
+          <div className="bg-red-600 text-red hover:bg-cyan-600 justify-center">
+            <button onClick={() => navigate('/lobby')}>Lobby</button>
+          </div>
+          <div>
+            <h2 className="">Unavailable Dogs</h2>
+          </div>
           <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
             {bookDogsData &&
             Array.isArray(bookDogsData) &&

@@ -32,6 +32,7 @@ export const DogProvider = ({ children }: DogProviderProps) => {
     refetch();
   }, []);
 
+
   return (
     <DogContext.Provider
       value={{
