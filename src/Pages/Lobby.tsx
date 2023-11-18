@@ -10,7 +10,7 @@ export const Lobby = () => {
   const navigate = useNavigate();
 
   const { user, isRegister } = useAuth();
-  const { dogs } = useDog();
+  const { dogs, setDog } = useDog();
   const { bookDog, toggleBooking } = useBooking();
 
   // this tries to get the booking state of the dog and should show that the dog is available
@@ -20,45 +20,46 @@ export const Lobby = () => {
   // dogs(filtered dog) id with bookDog dog Id
 
 
-  const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(
-    undefined
-  );
+  // const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(
+  //   undefined
+  // );
 
-  useEffect(() => {
-    if (Array.isArray(dogs)) {
-      const activeDog = dogs.filter((dog) => {
-        return dog.available;
-      });
-      setAllActiveDogs(activeDog)
-        
-      
-    }
+  // useEffect(() => {
+  //   if (Array.isArray(dogs)) {
+  //     const activeDog = dogs.filter((dog) => {
+  //       return dog.available;
+  //     });
+  //     setAllActiveDogs(activeDog)
+  //   }
 
-  }, [dogs]);
+  // }, [dogs]);
 
   // onClick this either creates a booking or does not book the person
-  const onBookingClick = (dogId:number | undefined) => {
-    if (user && user?.id && dogId !== undefined) {
-      toggleBooking({
-        dogId: dogId,
-        userId: user?.id, 
-      });
-    }
 
-    // this code will render a new set of active dogs that go directly to bookingDogs component
-
-    
-    // const updatedActiveDogs = ((prevActiveDogs: (DogTypes | undefined)[]) =>
-    // (prevActiveDogs || []).filter((dog) => dog?.id !== dogId)
-    // );
+  const onBookingClick = (dogId: number | undefined) => {
+    if (user && user?.id && Array.isArray(dogs) &&dogId !== undefined) {
+      const selectedDog = dogs.find((dog) => dog.id === dogId);
   
-    setAllActiveDogs((prevActiveDogs: DogTypes[] | undefined) => {
-      const dogsArray = prevActiveDogs || [];
-      return dogsArray.filter((dog) => dog?.id !== dogId)
+      if (selectedDog && selectedDog.available) {
+        toggleBooking({
+          dogId: dogId,
+          userId: user?.id,
+        });
+         
+          // Remove the booked dog from the list of available dogs
+        setDog((prevDog: DogTypes | null) => {
+            const dogsArray = prevDog || [];
+            if(Array.isArray(dogsArray) && prevDog){
+              return dogsArray.filter((dog) => dog?.id !== dogId);
+            }
+
+        });
+      }
     }
-  );
-    
   };
+
+
+  // dogs => show all dogs available and unavailable
 
   return (
     <>
@@ -72,11 +73,11 @@ export const Lobby = () => {
             >Booked Dogs</button>
           </div>
           <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
-            {allActiveDogs &&
-            Array.isArray(allActiveDogs) &&
+            {dogs &&
+            Array.isArray(dogs) &&
             user &&
             isRegister ? (
-              allActiveDogs.map((dog, index) => (
+              dogs.map((dog, index) => (
                 
                 <div key={index} className="flex flex-col">
                   <div className="">
@@ -99,7 +100,8 @@ export const Lobby = () => {
                       )}
                     </div>
                     <button onClick={() => onBookingClick(dog.id)}
-                    className="border-4 bg-"
+                    className="border-4"
+                    disabled={!dog.available}
                     >Book now!</button>
                   </div>
                 </div>
