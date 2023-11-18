@@ -82,7 +82,7 @@ export const Navbar = () => {
         >
           <FontAwesomeIcon className="text-icon-color text-2xl" icon={faBone} />
           <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
-            About
+            Home
           </button>
         </div>
         <div
