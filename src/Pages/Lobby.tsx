@@ -71,20 +71,19 @@ export const Lobby = () => {
                     <h2 className="text-4xl font-bold">{dog.name}</h2>
                     <h3 className="text-2xl font-semibold">{dog.breed}</h3>
                     <div>
-                      <p>Is it available?</p>
+                      <p>When am I available?</p>
                       <p>{dog.timeAvailable}</p>
                     </div>
-                    <button
-                      onClick={() => onBookingClick(dog.id)}
-                      className={`border-4 ${dog.available ? "bg-orange-bg" : ""}`}
-                    >
+                    <button onClick={() => onBookingClick(dog.id)} className="bg-pink-btn border-4">
                       Book now!
                     </button>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="text-5xl font-semibold">No dogs available. Please Login</div>
+              <div className="text-5xl font-semibold">
+                Please log in to view our available dogs!
+              </div>
             )}
           </div>
         </div>
