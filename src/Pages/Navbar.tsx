@@ -9,6 +9,7 @@ import { faDog } from "@fortawesome/free-solid-svg-icons/faDog";
 import { faCalendarCheck } from "@fortawesome/free-solid-svg-icons/faCalendarCheck";
 import { faUsers } from "@fortawesome/free-solid-svg-icons/faUsers";
 import { faBone } from "@fortawesome/free-solid-svg-icons/faBone";
+import { useNavigate } from "react-router-dom";
 
 export const Navbar = () => {
   const [shouldShowSignup, setShouldShowSignup] = useState(false);
@@ -17,6 +18,7 @@ export const Navbar = () => {
 
   const isUser = user !== null;
 
+  const navigate = useNavigate();
   return (
     <div className="bg-orange-bg h-96 flex">
       <div className="flex-none w-96 flex flex-col justify-evenly items-center">
@@ -74,19 +76,28 @@ export const Navbar = () => {
             </div>
           )}
         </div>
-        <div className="flex justify-evenly items-center w-44 cursor-pointer">
+        <div
+          className="flex justify-evenly items-center w-44 cursor-pointer"
+          onClick={() => navigate("/")}
+        >
           <FontAwesomeIcon className="text-icon-color text-2xl" icon={faBone} />
           <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
             About
           </button>
         </div>
-        <div className="flex justify-evenly items-center w-44 cursor-pointer">
+        <div
+          className="flex justify-evenly items-center w-44 cursor-pointer"
+          onClick={() => navigate("lobby")}
+        >
           <FontAwesomeIcon className="text-icon-color text-2xl" icon={faDog} />
           <button className="text-xl rounded-xl bg-pink-btn p-2 px-5 text-off-white font-montserrat">
             Dogs
           </button>
         </div>
-        <div className="flex justify-evenly items-center w-44 cursor-pointer">
+        <div
+          className="flex justify-evenly items-center w-44 cursor-pointer"
+          onClick={() => navigate("booked-dogs")}
+        >
           <FontAwesomeIcon className="text-icon-color text-2xl" icon={faCalendarCheck} />
           <button className="text-xl rounded-xl bg-blue-btn p-2 px-5 text-off-white font-montserrat">
             Reserve

@@ -1,10 +1,10 @@
 export type DogTypes = {
   name: string;
   breed: string;
-  available: boolean;
   id?: number;
   image: string;
   timeAvailable?: string;
+  available:boolean;
 };
 
 export type UserInformation = {

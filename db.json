@@ -41,7 +41,6 @@
     {
       "name": "Sport",
       "breed": "German Shepard",
-      "available": true,
       "image": "https://www.vidavetcare.com/wp-content/uploads/sites/234/2022/04/german-shepherd-dog-breed-info.jpeg",
       "timeAvailable": "8AM - 12PM",
       "id": 1
@@ -49,7 +48,6 @@
     {
       "name": "Fido",
       "breed": "Siberian Husky",
-      "available": false,
       "image": "https://images.wagwalkingweb.com/media/daily_wag/blog_articles/hero/1685787498.877709/fun-facts-about-siberian-huskies-1.png",
       "timeAvailable": "12PM - 3PM",
       "id": 2
@@ -57,7 +55,6 @@
     {
       "name": "Spot",
       "breed": "Chihuahua",
-      "available": true,
       "image": "https://images.saymedia-content.com/.image/t_share/MjAxMjM1NTc0NjYzNjg1NjU0/chihuahua-guide.jpg",
       "timeAvailable": "8AM - 12PM",
       "id": 3
@@ -65,7 +62,6 @@
     {
       "name": "Jack",
       "breed": "Pitbull",
-      "available": true,
       "image": "https://kenneltocouch.org/wp-content/uploads/2019/09/iStock-1143880146.jpg",
       "timeAvailable": "10AM - 12PM",
       "id": 4
@@ -73,7 +69,6 @@
     {
       "name": "Fifi",
       "breed": "Golden Retriever",
-      "available": false,
       "image": "https://www.purina.co.uk/sites/default/files/styles/square_medium_440x440/public/2022-09/golden%20retriever.jpg?h=41f179ac&itok=LxcGCtq0",
       "timeAvailable": "8AM - 12PM",
       "id": 5
@@ -81,7 +76,6 @@
     {
       "name": "Major",
       "breed": "Poodle",
-      "available": true,
       "image": "https://tkpoodles.com/images/Adonis.jpeg",
       "timeAvailable": "10AM - 12PM",
       "id": 6
@@ -89,7 +83,6 @@
     {
       "name": "Calisto",
       "breed": "Pomeranian",
-      "available": true,
       "image": "https://www.nylabone.com/-/media/Project/OneWeb/Nylabone/Images/Dog101/Breeds-A-Z/pomeranian.jpg",
       "timeAvailable": "2PM - 5PM",
       "id": 7
@@ -97,7 +90,6 @@
     {
       "name": "Mika",
       "breed": "Bulldog",
-      "available": true,
       "image": "https://thepawsitive.co/cdn/shop/articles/Blog_Image___15_Interesting_Facts_About_The_English_Bulldog.png?v=1584660313",
       "timeAvailable": "5PM - 10PM",
       "id": 8
@@ -105,7 +97,6 @@
     {
       "name": "Nero",
       "breed": "Dalmation",
-      "available": true,
       "image": "https://dogtime.com/wp-content/uploads/sites/12/2023/08/GettyImages-1477482225.jpg?w=1024",
       "timeAvailable": "8AM - 12PM",
       "id": 9
@@ -113,7 +104,6 @@
     {
       "name": "Eeyore",
       "breed": "Basset Hound",
-      "available": true,
       "image": "https://i0.wp.com/alaskadogworks.com/wp-content/uploads/2021/08/basset-hound.jpg?fit=1024%2C682&ssl=1",
       "timeAvailable": "12AM - 6PM",
       "id": 10
@@ -121,7 +111,6 @@
     {
       "name": "Bella",
       "breed": "Samoyed",
-      "available": true,
       "image": "https://images.hola.com/us/images/027a-16592bb001cf-d059a6a604b7-1000/horizontal-480/instagram.jpg",
       "timeAvailable": "8AM - 12PM",
       "id": 11
@@ -129,7 +118,6 @@
     {
       "name": "Oscar",
       "breed": "Doberman",
-      "available": true,
       "image": "https://www.pumpkin.care/wp-content/uploads/2021/03/Doberman-Hero.jpg",
       "timeAvailable": "3PM - 8PM",
       "id": 12
@@ -137,7 +125,6 @@
     {
       "name": "Mouse",
       "breed": "Beagle",
-      "available": true,
       "image": "https://www.allthingsdogs.com/wp-content/uploads/2021/11/cute-beagle-puppy-678x381.jpg",
       "timeAvailable": "8AM - 12PM",
       "id": 13
@@ -145,7 +132,6 @@
     {
       "name": "Stanley",
       "breed": "Shiba Inu",
-      "available": true,
       "image": "https://www.pumpkin.care/wp-content/uploads/2020/12/Shiba-Inu-Hero-1-jpg.webp",
       "timeAvailable": "8AM - 8PM",
       "id": 14
@@ -153,7 +139,6 @@
     {
       "name": "Squirt",
       "breed": "Cockapoo",
-      "available": false,
       "image": "https://www.ukpets.com/oc-content/uploads/breeds/0/4774.jpg",
       "timeAvailable": "8AM - 8PM",
       "id": 15
@@ -172,38 +157,23 @@
     },
     {
       "userId": 2,
-      "dogId": 12,
-      "id": 10
+      "dogId": 4,
+      "id": 2
     },
     {
       "userId": 2,
       "dogId": 1,
-      "id": 11
+      "id": 3
+    },
+    {
+      "userId": 2,
+      "dogId": 2,
+      "id": 4
     },
     {
       "userId": 2,
       "dogId": 3,
-      "id": 12
-    },
-    {
-      "userId": 2,
-      "dogId": 6,
-      "id": 13
-    },
-    {
-      "userId": 2,
-      "dogId": 7,
-      "id": 14
-    },
-    {
-      "userId": 2,
-      "dogId": 8,
-      "id": 15
-    },
-    {
-      "userId": 2,
-      "dogId": 9,
-      "id": 16
+      "id": 5
     }
   ]
 }
