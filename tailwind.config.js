@@ -17,8 +17,8 @@ export default {
       "off-white": "#DEDDC2",
       "name-color": "#BB3E18",
       "teal-footer": "#01A2A2",
-      "footer-text": "#F0ECD7"
-      "grey": 'grey'
+      "footer-text": "#F0ECD7",
+      "grey": 'grey',
     },
   },
   plugins: [],
