@@ -10,6 +10,7 @@ import { DogCard } from "./Pages/DogCard";
 import { DogProvider } from "./Providers/DogProvider";
 import { BookedDogs } from "./Pages/BookedDogs";
 import { BookingProvider } from "./Providers/BookingProvider";
+import { Footer } from "./Pages/Footer";
 
 function App() {
   return (
@@ -18,7 +19,7 @@ function App() {
         <DogProvider>
           <BookingProvider>
             <Navbar />
-            <div className="w-full min-h-screen ">
+            <div className="w-full min-h-fit">
               <Routes>
                 <Route path="/" element={<Homepage />}></Route>
                 <Route path="about-us" element={<AboutPage />}></Route>
@@ -27,6 +28,7 @@ function App() {
                 <Route path="dogs" element={<DogCard />}></Route>
               </Routes>
             </div>
+            <Footer />
           </BookingProvider>
         </DogProvider>
       </AuthProvider>
