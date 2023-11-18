@@ -1,4 +1,8 @@
+import { useNavigate } from "react-router-dom";
+
 export const Homepage = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className="bg-off-white">
@@ -29,7 +33,10 @@ export const Homepage = () => {
         </section>
         <section className="flex justify-evenly items-center mx-auto my-10 w-3/4">
           <div className="my-10 h-1/4 w-3/5 pr-4">
-            <h2 className="text-name-color font-semibold text-3xl py-4 text-left">
+            <h2
+              className="text-name-color font-semibold text-3xl py-4 text-left"
+              onClick={() => navigate("/lobby")}
+            >
               <a href="#">Step into the Paws Lobby</a>
             </h2>
             <p className="tracking-wide font-montserrat leading-7 text-left my-2">
@@ -44,7 +51,7 @@ export const Homepage = () => {
             </p>
           </div>
           <div className="h-60">
-            <a href="#">
+            <a href="#" onClick={() => navigate("/lobby")}>
               <img
                 src="src\assets\Bus.png"
                 alt="Bus"
@@ -55,7 +62,7 @@ export const Homepage = () => {
         </section>
         <section className="flex justify-evenly items-center mx-auto mt-10 w-3/4">
           <div className="h-60">
-            <a href="#">
+            <a href="#" onClick={() => navigate("dogs")}>
               <img
                 src="src\assets\4heads.png"
                 alt="Headshots"
@@ -64,7 +71,10 @@ export const Homepage = () => {
             </a>
           </div>
           <div className="my-10 h-1/4 w-3/5 pl-4">
-            <h2 className="text-name-color font-semibold text-3xl py-4 text-left">
+            <h2
+              className="text-name-color font-semibold text-3xl py-4 text-left"
+              onClick={() => navigate("dogs")}
+            >
               <a href="#">Visit the Dogs Gallery</a>
             </h2>
             <p className="tracking-wide font-montserrat leading-7">
