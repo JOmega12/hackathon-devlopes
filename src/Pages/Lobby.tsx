@@ -3,17 +3,22 @@ import { useAuth } from "../Providers/AuthProvider";
 import { useBooking } from "../Providers/BookingProvider";
 import { useDog } from "../Providers/DogProvider";
 import { DogTypes } from "../types";
+import { useNavigate } from "react-router-dom";
 
 export const Lobby = () => {
+
+  const navigate = useNavigate();
+
   const { user, isRegister } = useAuth();
   const { dogs } = useDog();
   const { bookDog, toggleBooking } = useBooking();
 
-  // this tries to get the booking state of the dog and checks it
+  // this tries to get the booking state of the dog and should show that the dog is available
   console.log(bookDog, 'bookDog state');
 
   // compare the user.id with bookDog  userId and with the
   // dogs(filtered dog) id with bookDog dog Id
+
 
   const [allActiveDogs, setAllActiveDogs] = useState<DogTypes[] | undefined>(
     undefined
@@ -24,7 +29,9 @@ export const Lobby = () => {
       const activeDog = dogs.filter((dog) => {
         return dog.available;
       });
-      setAllActiveDogs(activeDog);
+      setAllActiveDogs(activeDog)
+        
+      
     }
 
   }, [dogs]);
@@ -39,29 +46,29 @@ export const Lobby = () => {
     }
 
     // this code will render a new set of active dogs that go directly to bookingDogs component
-    const updatedActiveDogs = (allActiveDogs || [])?.filter((dog) => dog.id !== dogId)
 
-    // const updatedActiveDogs = allActiveDogs?.map((dog) => {
-    //   if(dog.id === dogId) {
-    //     return {
-    //       ...dog,
-    //       available: !dog.available
-    //     };
-    //   }
-    //   return dog
-    // });
-    // .filter((dog) => dog.id !== dogId)
-    setAllActiveDogs(updatedActiveDogs)
+    
+    // const updatedActiveDogs = ((prevActiveDogs: (DogTypes | undefined)[]) =>
+    // (prevActiveDogs || []).filter((dog) => dog?.id !== dogId)
+    // );
+
+  
+    setAllActiveDogs((prevActiveDogs: DogTypes[] | undefined) => {
+      const dogsArray = prevActiveDogs || [];
+      return dogsArray.filter((dog) => dog?.id !== dogId)
+    }
+  );
+    
   };
-
-  // const test= allActiveDogs?.map((item) => item.id);
-  // console.log(test);
 
   return (
     <>
       <div>
         <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
           <h1 className="text-6xl font-extrabold text-center mb-16">Our Dogs</h1>
+          <div className="bg-red-600 text-red hover:bg-cyan-600 justify-center">
+            <button onClick={() => navigate('/booked-dogs')}>Lobby</button>
+          </div>
           <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
             {allActiveDogs &&
             Array.isArray(allActiveDogs) &&
