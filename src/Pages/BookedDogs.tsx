@@ -16,46 +16,39 @@ export const BookedDogs = () => {
     []
   );
 
-  // this should show the data that the dog is unavailable
-    // console.log(bookDogsData, 'booksDogData')
-
   useEffect(() => {
     if (Array.isArray(bookDog)) {
       // when user is loggedIn, this shows what the user has booked
       const userBookings = bookDog.filter(
         (selfUser: { userId: number | undefined }) => {
-            // console.log(user)
           return selfUser.userId === user?.id;
         }
       );
-    // this gets the information of the specific dog
+      // this gets the information of the specific dog
       if (Array.isArray(dogs)) {
         const matchedData = userBookings.map((bookDogId: { dogId: number }) => {
-            return dogs.find((specificDogId) => {
-              return specificDogId.id === bookDogId.dogId;
-            });
+          return dogs.find((specificDogId) => {
+            return specificDogId.id === bookDogId.dogId;
           });
-          // console.log(matchedData, 'matchedData')
-          setBookDogsData(matchedData);
+        });
+        setBookDogsData(matchedData);
       }
-    
     }
   }, [bookDog, dogs, user, user?.id]);
-
-  // console.log(bookDogsData, "bookdogsData");
 
   // onClick this either creates a booking or does not book the person
   const onBookingClick = (dogId: number | undefined) => {
     if (user && user?.id && Array.isArray(bookDog) && dogId !== undefined) {
       // Check if the dog is currently booked
-      const isBooked = bookDog.some((booking) => booking.dogId === dogId && booking.userId === user?.id);
-      console.log(isBooked, 'isbooked')
+      const isBooked = bookDog.some(
+        (booking) => booking.dogId === dogId && booking.userId === user?.id
+      );
+      console.log(isBooked, "isbooked");
       if (isBooked) {
         toggleBooking({
           dogId: dogId,
           userId: user?.id,
         });
-  
       }
     }
   };
@@ -63,7 +56,9 @@ export const BookedDogs = () => {
   return (
     <div>
       <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
-        <h1 className="text-6xl font-extrabold text-center mb-16">Dogs You Booked</h1>
+        <h1 className="text-6xl font-extrabold text-center mb-16">
+          Dogs You Booked
+        </h1>
         <div className="flex justify-center mb-10">
           <button
             onClick={() => navigate("/lobby")}
@@ -92,8 +87,11 @@ export const BookedDogs = () => {
                         <p>Is it available?</p>
                         <p>{dog.timeAvailable}</p>
                       </div>
-                      <button onClick={() => onBookingClick(dog.id)}
-                        className={`border-4 ${dog.available ? '' : 'bg-orange-bg'}`}
+                      <button
+                        onClick={() => onBookingClick(dog.id)}
+                        className={`border-4 ${
+                          dog.available ? "" : "bg-orange-bg"
+                        }`}
                       >
                         Book now!
                       </button>
@@ -114,6 +112,3 @@ export const BookedDogs = () => {
     </div>
   );
 };
-
-
-

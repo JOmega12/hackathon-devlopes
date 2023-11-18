@@ -6,14 +6,13 @@ import { useNavigate } from "react-router-dom";
 import { DogTypes } from "../types";
 
 export const Lobby = () => {
-
   const navigate = useNavigate();
 
   const { user, isRegister } = useAuth();
   const { dogs } = useDog();
   const { bookDog, toggleBooking } = useBooking();
 
-  console.log(bookDog, 'bookDog')
+  console.log(bookDog, "bookDog");
 
   const [activeDogs, setActiveDogs] = useState<DogTypes[]>([]);
 
@@ -21,23 +20,23 @@ export const Lobby = () => {
     if (Array.isArray(bookDog) && Array.isArray(dogs)) {
       // when user is loggedIn, this shows what the user has booked
       const userBookings = bookDog
-      .filter( (selfUser: { userId: number | undefined; dogId: number }) => {
+        .filter((selfUser: { userId: number | undefined; dogId: number }) => {
           return selfUser.userId === user?.id;
         })
-      .map((booking) => booking.dogId);
+        .map((booking) => booking.dogId);
 
-      const availableDogs= dogs.filter((dog) => !userBookings.includes(dog.id));
+      const availableDogs = dogs.filter(
+        (dog) => !userBookings.includes(dog.id)
+      );
       setActiveDogs(availableDogs);
-    
-
     }
-  }, [bookDog, dogs, user?.id])
+  }, [bookDog, dogs, user?.id]);
 
   // onClick this either creates a booking or does not book the person
   const onBookingClick = (dogId: number | undefined) => {
-    if (user && user?.id && Array.isArray(dogs) &&dogId !== undefined) {
+    if (user && user?.id && Array.isArray(dogs) && dogId !== undefined) {
       const selectedDog = dogs.find((dog) => dog.id === dogId);
-      
+
       if (selectedDog) {
         toggleBooking({
           dogId: dogId,
@@ -45,25 +44,28 @@ export const Lobby = () => {
         });
       }
     }
-
   };
 
   return (
     <>
       <div>
         <div className="flex flex-col min-h-screen flex-grow mx-auto p-8 ">
-          <h1 className="text-6xl font-extrabold text-center mb-16">Our Dogs</h1>
-          <div className="flex justify-center mb-10
-          ">
-            <button onClick={() => navigate('/booked-dogs')}
-            className=" bg-pink-btn p-5 text-2xl text-off-white"
-            >Booked Dogs</button>
+          <h1 className="text-6xl font-extrabold text-center mb-16">
+            Our Dogs
+          </h1>
+          <div
+            className="flex justify-center mb-10
+          "
+          >
+            <button
+              onClick={() => navigate("/booked-dogs")}
+              className=" bg-pink-btn p-5 text-2xl text-off-white"
+            >
+              Booked Dogs
+            </button>
           </div>
           <div className="flex flex-row flex-wrap gap-5 px-20 justify-center">
-            {dogs &&
-            Array.isArray(dogs) &&
-            user &&
-            isRegister ? (
+            {dogs && Array.isArray(dogs) && user && isRegister ? (
               activeDogs.map((dog, index) => (
                 <div key={index} className="flex flex-col">
                   <div className="">
@@ -80,16 +82,22 @@ export const Lobby = () => {
                       <p>Is it available?</p>
                       <p>{dog.timeAvailable}</p>
                     </div>
-                    <button onClick={() => onBookingClick(dog.id)}
-                    className={`border-4 ${dog.available ? 'bg-orange-bg' : ''}`}
-                    >Book now!</button>
+                    <button
+                      onClick={() => onBookingClick(dog.id)}
+                      className={`border-4 ${
+                        dog.available ? "bg-orange-bg" : ""
+                      }`}
+                    >
+                      Book now!
+                    </button>
                   </div>
                 </div>
               ))
             ) : (
-              <div className="text-5xl font-semibold">No dogs available. Please Login</div>
+              <div className="text-5xl font-semibold">
+                No dogs available. Please Login
+              </div>
             )}
-
           </div>
         </div>
 
