@@ -9,7 +9,7 @@
     {
       "username": "test",
       "password": "testP",
-      "shouldRemember": true,
+      "shouldRemember": false,
       "id": 2
     },
     {
@@ -35,6 +35,12 @@
       "password": "test1",
       "shouldRemember": false,
       "id": 6
+    },
+    {
+      "username": "user",
+      "password": "userP",
+      "shouldRemember": true,
+      "id": 7
     }
   ],
   "dogs": [
@@ -174,6 +180,16 @@
       "userId": 2,
       "dogId": 3,
       "id": 5
+    },
+    {
+      "userId": 2,
+      "dogId": 5,
+      "id": 6
+    },
+    {
+      "userId": 2,
+      "dogId": 6,
+      "id": 7
     }
   ]
 }
